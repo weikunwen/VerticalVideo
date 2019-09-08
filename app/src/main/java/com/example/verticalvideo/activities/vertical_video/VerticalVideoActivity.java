@@ -1,10 +1,12 @@
-package com.example.verticalvideo;
+package com.example.verticalvideo.activities.vertical_video;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.verticalvideo.R;
+
+public class VerticalVideoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
