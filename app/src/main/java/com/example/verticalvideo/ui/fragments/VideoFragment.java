@@ -1,4 +1,4 @@
-package com.example.verticalvideo.fragments;
+package com.example.verticalvideo.ui.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
