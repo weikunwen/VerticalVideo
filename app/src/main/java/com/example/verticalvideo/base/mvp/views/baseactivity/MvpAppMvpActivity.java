@@ -12,6 +12,7 @@ public abstract class MvpAppMvpActivity<P extends BaseMvpPresenter> extends MvpA
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(getContentViewId());
     }
 
     public abstract int getContentViewId();

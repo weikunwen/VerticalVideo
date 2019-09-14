@@ -11,12 +11,11 @@ public class VerticalVideoActivity<P extends VerticalVideoContract.Presenter> ex
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
     }
 
     @Override
     public int getContentViewId() {
-        return 0;
+        return R.layout.activity_main;
     }
 
     @Override

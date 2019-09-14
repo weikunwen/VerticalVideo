@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
 import com.example.verticalvideo.base.common.presenters.MvpPresenter;
 import com.example.verticalvideo.base.common.views.IMvpView;
 
-public class MvpFragment<P extends MvpPresenter> extends Fragment implements IMvpView {
+public abstract class MvpFragment<P extends MvpPresenter> extends Fragment implements IMvpView {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
