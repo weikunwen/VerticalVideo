@@ -13,4 +13,10 @@ public abstract class MvpFragment<P extends MvpPresenter> extends Fragment imple
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
+    public abstract int getContentViewId();
+
+    public abstract void initData();
+
+    public abstract void initView();
 }

@@ -1,10 +1,11 @@
-package com.example.verticalvideo.ui.activities.vertical_video;
+package com.example.verticalvideo.ui.fragments;
 
 import com.example.verticalvideo.base.mvp.models.IBaseMvpModel;
 import com.example.verticalvideo.base.mvp.presenters.BaseMvpPresenter;
 import com.example.verticalvideo.base.mvp.views.IBaseMvpView;
+import com.example.verticalvideo.ui.activities.vertical_video.VerticalVideoContract;
 
-public class VerticalVideoContract {
+public class VideoContract {
     public interface IBaseView extends IBaseMvpView {
     }
 
