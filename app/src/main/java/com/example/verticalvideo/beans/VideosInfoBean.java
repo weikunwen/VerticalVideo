@@ -1,42 +1,49 @@
 package com.example.verticalvideo.beans;
 
-import java.util.List;
-
 public class VideosInfoBean {
-    private int videoId;
-    private String videoType;
-    private List<VideoBaseInfoBean> videoBaseListInfo;
-    private List<VideoAuthorInfoBean> videoAuthorListInfo;
+    private long videoId;
+    private int videoType;
+    private VideoBaseInfoBean videoBaseInfo;
+    private VideoAuthorInfoBean videoAuthorInfo;
+    private String videoPublishTime;
 
-    public int getVideoId() {
+    public long getVideoId() {
         return videoId;
     }
 
-    public void setVideoId(int videoId) {
+    public void setVideoId(long videoId) {
         this.videoId = videoId;
     }
 
-    public String getVideoType() {
+    public int getVideoType() {
         return videoType;
     }
 
-    public void setVideoType(String videoType) {
+    public void setVideoType(int videoType) {
         this.videoType = videoType;
     }
 
-    public List<VideoBaseInfoBean> getVideoBaseListInfo() {
-        return videoBaseListInfo;
+    public VideoBaseInfoBean getVideoBaseInfo() {
+        return videoBaseInfo;
     }
 
-    public void setVideoBaseListInfo(List<VideoBaseInfoBean> videoBaseListInfo) {
-        this.videoBaseListInfo = videoBaseListInfo;
+    public void setVideoBaseInfo(VideoBaseInfoBean videoBaseInfo) {
+        this.videoBaseInfo = videoBaseInfo;
     }
 
-    public List<VideoAuthorInfoBean> getVideoAuthorListInfo() {
-        return videoAuthorListInfo;
+    public VideoAuthorInfoBean getVideoAuthorInfo() {
+        return videoAuthorInfo;
     }
 
-    public void setVideoAuthorListInfo(List<VideoAuthorInfoBean> videoAuthorListInfo) {
-        this.videoAuthorListInfo = videoAuthorListInfo;
+    public void setVideoAuthorInfo(VideoAuthorInfoBean videoAuthorInfo) {
+        this.videoAuthorInfo = videoAuthorInfo;
+    }
+
+    public String getVideoPublishTime() {
+        return videoPublishTime;
+    }
+
+    public void setVideoPublishTime(String videoPublishTime) {
+        this.videoPublishTime = videoPublishTime;
     }
 }

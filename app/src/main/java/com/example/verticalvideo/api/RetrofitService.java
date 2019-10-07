@@ -1,9 +1,11 @@
 package com.example.verticalvideo.api;
 
-import io.reactivex.Flowable;
+import com.example.verticalvideo.beans.VideosInfoBean;
+
+import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface RetrofitService {
-    @GET("/feed_content/content/list/1")
-    Flowable<BaseResponse<Object>> getVideosInfo ();
+    @GET("feed_content/content/list/1")
+    Call<BaseResponse<VideosInfoBean[]>> getVideoListInfo();
 }
