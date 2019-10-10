@@ -8,8 +8,8 @@ import com.example.verticalvideo.R;
 import com.example.verticalvideo.api.BaseResponse;
 import com.example.verticalvideo.api.RetrofitService;
 import com.example.verticalvideo.base.common.views.basefragment.MvpFragment;
-import com.example.verticalvideo.beans.VideoListInfoBean;
 import com.example.verticalvideo.beans.VideosInfoBean;
+import com.example.verticalvideo.utils.LogHelper;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -54,20 +54,18 @@ public class VideoFragment extends MvpFragment {
         call.enqueue(new Callback<BaseResponse<VideosInfoBean[]>>() {
             @Override
             public void onResponse(Call<BaseResponse<VideosInfoBean[]>> call, Response<BaseResponse<VideosInfoBean[]>> response) {
-                Log.i(TAG, "getVideosInfoList onResponse");
+                LogHelper.i(TAG, "getVideosInfoList onResponse");
                 if((response.body().getCode() == 0) && ("成功".equals(response.body().getMessage()))) {
-                    VideosInfoBean[] videosInfoBean = response.body().getData();
-                    if ((videosInfoBean == null) || (videosInfoBean.length == 0)) {
-                        Log.e(TAG, "videosInfoBean is null");
-                    } else {
-                        Log.i(TAG, "publish time: " + videosInfoBean[0].getVideoType());
+                    VideosInfoBean[] videosInfoList = response.body().getData();
+                    if ((videosInfoList == null) || (videosInfoList.length == 0)) {
+                        LogHelper.e(TAG, "videosInfoBean is null");
                     }
                 }
             }
 
             @Override
             public void onFailure(Call<BaseResponse<VideosInfoBean[]>> call, Throwable t) {
-                Log.e(TAG, "getVideosInfoList onFailure: " + t.getMessage());
+                LogHelper.e(TAG, "getVideosInfoList onFailure: " + t.getMessage());
             }
         });
     }

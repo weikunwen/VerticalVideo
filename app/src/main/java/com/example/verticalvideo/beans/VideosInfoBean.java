@@ -1,49 +1,49 @@
 package com.example.verticalvideo.beans;
 
 public class VideosInfoBean {
-    private long videoId;
-    private int videoType;
-    private VideoBaseInfoBean videoBaseInfo;
-    private VideoAuthorInfoBean videoAuthorInfo;
-    private String videoPublishTime;
+    private long id;
+    private int type;
+    private VideoBaseInfoBean content;
+    private VideoAuthorInfoBean author;
+    private String publishTime;
 
-    public long getVideoId() {
-        return videoId;
+    public long getId() {
+        return id;
     }
 
-    public void setVideoId(long videoId) {
-        this.videoId = videoId;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public int getVideoType() {
-        return videoType;
+    public int getType() {
+        return type;
     }
 
-    public void setVideoType(int videoType) {
-        this.videoType = videoType;
+    public void setType(int type) {
+        this.type = type;
     }
 
-    public VideoBaseInfoBean getVideoBaseInfo() {
-        return videoBaseInfo;
+    public VideoBaseInfoBean getContent() {
+        return content;
     }
 
-    public void setVideoBaseInfo(VideoBaseInfoBean videoBaseInfo) {
-        this.videoBaseInfo = videoBaseInfo;
+    public void setContent(VideoBaseInfoBean content) {
+        this.content = content;
     }
 
-    public VideoAuthorInfoBean getVideoAuthorInfo() {
-        return videoAuthorInfo;
+    public VideoAuthorInfoBean getAuthor() {
+        return author;
     }
 
-    public void setVideoAuthorInfo(VideoAuthorInfoBean videoAuthorInfo) {
-        this.videoAuthorInfo = videoAuthorInfo;
+    public void setAuthor(VideoAuthorInfoBean author) {
+        this.author = author;
     }
 
-    public String getVideoPublishTime() {
-        return videoPublishTime;
+    public String getPublishTime() {
+        return publishTime;
     }
 
-    public void setVideoPublishTime(String videoPublishTime) {
-        this.videoPublishTime = videoPublishTime;
+    public void setPublishTime(String publishTime) {
+        this.publishTime = publishTime;
     }
 }

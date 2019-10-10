@@ -8,35 +8,49 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.verticalvideo.R;
+import com.example.verticalvideo.beans.VideosInfoBean;
+import com.squareup.picasso.Picasso;
 
-public class VideoAdapter extends RecyclerView.Adapter {
+import cn.jzvd.Jzvd;
+import cn.jzvd.JzvdStd;
+
+public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> {
     private Context mContext;
+    private VideosInfoBean[] mVideosInfoList;
 
-    public VideoAdapter(Context context){
+    public VideoAdapter(Context context, VideosInfoBean[] videosInfoList){
         mContext = context;
+        mVideosInfoList = videosInfoList;
     }
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        VideoAdapter.ViewHolder viewHolder = new VideoAdapter.ViewHolder(LayoutInflater.from(mContext)
-            .inflate(R.layout.item_show_video, parent,false));
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(mContext).inflate(R.layout.item_show_video, parent, false);
+        ViewHolder viewHolder = new ViewHolder(itemView);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.jzvdStd.setUp(mVideosInfoList[position].getContent().getV_url(),
+            mVideosInfoList[0].getContent().getTitle(), Jzvd.SCREEN_WINDOW_NORMAL);
+        Picasso.with(mContext)
+            .load(mVideosInfoList[0].getContent().getCover_img())
+            .into(holder.jzvdStd.thumbImageView);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mVideosInfoList.length;
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
-        ViewHolder(View view) {
-            super(view);
+    class ViewHolder extends RecyclerView.ViewHolder {
+        JzvdStd jzvdStd;
+
+        ViewHolder(View itemView) {
+            super(itemView);
+            jzvdStd = itemView.findViewById(R.id.video_player);
         }
     }
 }
