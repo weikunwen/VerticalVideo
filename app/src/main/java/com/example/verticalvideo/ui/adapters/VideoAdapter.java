@@ -9,18 +9,20 @@ import android.view.ViewGroup;
 
 import com.example.verticalvideo.R;
 import com.example.verticalvideo.beans.VideosInfoBean;
+import com.example.verticalvideo.utils.LogHelper;
 import com.squareup.picasso.Picasso;
 
 import cn.jzvd.Jzvd;
 import cn.jzvd.JzvdStd;
 
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> {
+    private static final String TAG = "VideoAdapter";
     private Context mContext;
     private VideosInfoBean[] mVideosInfoList;
 
     public VideoAdapter(Context context, VideosInfoBean[] videosInfoList){
-        mContext = context;
-        mVideosInfoList = videosInfoList;
+        this.mContext = context;
+        this.mVideosInfoList = videosInfoList;
     }
 
     @NonNull
@@ -34,9 +36,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.jzvdStd.setUp(mVideosInfoList[position].getContent().getV_url(),
-            mVideosInfoList[0].getContent().getTitle(), Jzvd.SCREEN_WINDOW_NORMAL);
+            mVideosInfoList[position].getContent().getTitle(), Jzvd.SCREEN_WINDOW_NORMAL);
         Picasso.with(mContext)
-            .load(mVideosInfoList[0].getContent().getCover_img())
+            .load(mVideosInfoList[position].getContent().getCover_img())
             .into(holder.jzvdStd.thumbImageView);
     }
 

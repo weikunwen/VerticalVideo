@@ -1,37 +1,45 @@
 package com.example.verticalvideo.ui.fragments;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.example.verticalvideo.R;
-import com.example.verticalvideo.api.BaseResponse;
-import com.example.verticalvideo.api.RetrofitService;
 import com.example.verticalvideo.base.common.views.basefragment.MvpFragment;
 import com.example.verticalvideo.beans.VideosInfoBean;
+import com.example.verticalvideo.ui.adapters.VideoAdapter;
 import com.example.verticalvideo.utils.LogHelper;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class VideoFragment extends MvpFragment {
     private static final String TAG = "VideoFragment";
 
-    private RetrofitService retrofitService;
+    private VideosInfoBean[] mVideosInfoList;
+
+    private RecyclerView mVideosRecyclerView;
+
+    private VideoAdapter mVideoAdapter;
+
+    public VideoFragment(VideosInfoBean[] videosInfoList) {
+        mVideosInfoList = videosInfoList;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i(TAG, "onCreate is invoked.");
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://114.67.81.61/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        retrofitService = retrofit.create(RetrofitService.class);
-        getVideosInfoList();
+        LogHelper.i(TAG, "onCreate is invoked.");
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = super.onCreateView(inflater, container, savedInstanceState);
+        initView(view);
+        return view;
     }
 
     @Override
@@ -39,34 +47,15 @@ public class VideoFragment extends MvpFragment {
         return R.layout.fragment_show_video;
     }
 
-    @Override
     public void initData() {
-
     }
 
-    @Override
-    public void initView() {
-
-    }
-
-    private void getVideosInfoList() {
-        Call<BaseResponse<VideosInfoBean[]>> call = retrofitService.getVideoListInfo();
-        call.enqueue(new Callback<BaseResponse<VideosInfoBean[]>>() {
-            @Override
-            public void onResponse(Call<BaseResponse<VideosInfoBean[]>> call, Response<BaseResponse<VideosInfoBean[]>> response) {
-                LogHelper.i(TAG, "getVideosInfoList onResponse");
-                if((response.body().getCode() == 0) && ("成功".equals(response.body().getMessage()))) {
-                    VideosInfoBean[] videosInfoList = response.body().getData();
-                    if ((videosInfoList == null) || (videosInfoList.length == 0)) {
-                        LogHelper.e(TAG, "videosInfoBean is null");
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<BaseResponse<VideosInfoBean[]>> call, Throwable t) {
-                LogHelper.e(TAG, "getVideosInfoList onFailure: " + t.getMessage());
-            }
-        });
+    public void initView(View view) {
+        mVideosRecyclerView = view.findViewById(R.id.show_video_rv);
+        mVideoAdapter = new VideoAdapter(getActivity(), mVideosInfoList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mVideosRecyclerView.setLayoutManager(linearLayoutManager);
+        mVideosRecyclerView.setAdapter(mVideoAdapter);
     }
 }
