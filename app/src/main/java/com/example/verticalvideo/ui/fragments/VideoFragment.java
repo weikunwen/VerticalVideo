@@ -36,7 +36,8 @@ public class VideoFragment extends MvpFragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+        @Nullable Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
         initView(view);
         return view;
@@ -45,6 +46,12 @@ public class VideoFragment extends MvpFragment {
     @Override
     public int getContentViewId() {
         return R.layout.fragment_show_video;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
     }
 
     public void initData() {

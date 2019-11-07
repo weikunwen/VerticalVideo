@@ -8,12 +8,12 @@ import com.example.verticalvideo.base.mvp.views.IBaseMvpView;
 
 import java.util.Optional;
 
-public abstract class BaseMvpPresenter<V extends IBaseMvpView, M extends IBaseMvpModel> extends MvpPresenter<V, M> {
-    protected Optional<V> mView = Optional.empty();
+public abstract class BaseMvpPresenter<T extends IBaseMvpView, V extends IBaseMvpModel> extends MvpPresenter<T, V> {
+    protected Optional<T> mView = Optional.empty();
 
-    protected Optional<M> mModel = Optional.empty();
+    protected Optional<V> mModel = Optional.empty();
 
-    public void bindView(@NonNull V view) {
+    public void bindView(@NonNull T view) {
         mView = Optional.of(view);
     }
 
@@ -21,7 +21,7 @@ public abstract class BaseMvpPresenter<V extends IBaseMvpView, M extends IBaseMv
         mView = Optional.empty();
     }
 
-    public void setmModel(@NonNull M model) {
+    public void setModel(@NonNull V model) {
         mModel = Optional.of(model);
     }
 }

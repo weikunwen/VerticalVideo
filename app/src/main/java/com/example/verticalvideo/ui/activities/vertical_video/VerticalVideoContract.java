@@ -11,7 +11,7 @@ public class VerticalVideoContract {
     public interface IBaseModel extends IBaseMvpModel {
     }
 
-    public abstract static class Presenter<V extends VerticalVideoContract.IBaseView,
-        M extends VerticalVideoContract.IBaseModel> extends BaseMvpPresenter<V, M> {
+    public abstract static class Presenter<T extends VerticalVideoContract.IBaseView,
+        V extends VerticalVideoContract.IBaseModel> extends BaseMvpPresenter<T, V> {
     }
 }

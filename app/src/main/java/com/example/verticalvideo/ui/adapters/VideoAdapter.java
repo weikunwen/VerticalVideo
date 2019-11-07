@@ -12,7 +12,6 @@ import com.example.verticalvideo.beans.VideosInfoBean;
 import com.example.verticalvideo.utils.LogHelper;
 import com.squareup.picasso.Picasso;
 
-import cn.jzvd.Jzvd;
 import cn.jzvd.JzvdStd;
 
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> {
@@ -35,8 +34,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        LogHelper.i(TAG, "position: " + position);
         holder.jzvdStd.setUp(mVideosInfoList[position].getContent().getV_url(),
-            mVideosInfoList[position].getContent().getTitle(), Jzvd.SCREEN_WINDOW_NORMAL);
+            mVideosInfoList[position].getContent().getTitle());
         Picasso.with(mContext)
             .load(mVideosInfoList[position].getContent().getCover_img())
             .into(holder.jzvdStd.thumbImageView);
