@@ -17,10 +17,10 @@ public class RetrofitUtils {
 
         //创建Retrofit
         retrofit = new Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())//默认Gson进行解析
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//使用RxJava2的适配器
-                .baseUrl(BASE_URL)//接口
-                .build();
+            .addConverterFactory(GsonConverterFactory.create())//默认Gson进行解析
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//使用RxJava2的适配器
+            .baseUrl(BASE_URL)//接口
+            .build();
     }
 
     //4.创建一个静态方法，得到instance 判断是否为空

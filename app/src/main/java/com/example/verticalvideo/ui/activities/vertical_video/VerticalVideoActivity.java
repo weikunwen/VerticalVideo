@@ -1,11 +1,13 @@
 package com.example.verticalvideo.ui.activities.vertical_video;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.RecyclerView;
 
 import com.example.verticalvideo.R;
 import com.example.verticalvideo.base.mvp.views.baseactivity.MvpAppMvpActivity;
@@ -18,6 +20,8 @@ import java.util.Optional;
 
 public class VerticalVideoActivity extends MvpAppMvpActivity<VerticalVideoPresenter> implements IVerticaVideoView {
     private static final String TAG = "VerticalVideoActivity";
+
+    private RecyclerView recyclerView;
 
     private Optional<VerticalVideoPresenter> mVerticalVideoPresenter = Optional.of(new VerticalVideoPresenter());
 

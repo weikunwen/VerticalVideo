@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <cn.jzvd.JzvdStd
+        android:id="@+id/video_player"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/video_player_image_height"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/click_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/margin_end"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/small"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/click_like"
+            android:layout_marginRight="@dimen/margin_end"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/small"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/video_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/extra_large"
+        android:maxLines="2"
+        android:ellipsize="end"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/user_image"
+            android:layout_width="@dimen/user_image_width"
+            android:layout_height="@dimen/user_image_height"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/user_image_height"
+            app:layout_constraintLeft_toRightOf="@+id/user_image"
+            android:layout_marginLeft="@dimen/video_describe_margin_image"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/middle"
+                android:maxLines="2" />
+
+            <TextView
+                android:id="@+id/video_publish_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/video_title_margin_publish_time"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/small"
+                android:maxLines="2"/>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
