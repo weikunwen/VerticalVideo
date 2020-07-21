@@ -1,6 +1,6 @@
 package com.example.verticalvideo.api;
 
-public interface NetResultResponse<T> {
+public interface INetResultResponse<T> {
     int getCode();
 
     String getMessage();

@@ -1,6 +1,6 @@
 package com.example.verticalvideo.utils;
 
-import com.example.verticalvideo.api.RetrofitService;
+import com.example.verticalvideo.api.IRetrofitService;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -36,7 +36,7 @@ public class RetrofitUtils {
     }
 
     //6创建方法 方便调用
-    public RetrofitService getApiService(){
-        return  retrofit.create(RetrofitService.class);
+    public IRetrofitService getApiService(){
+        return  retrofit.create(IRetrofitService.class);
     }
 }

@@ -1,7 +1,7 @@
 package com.example.verticalvideo.base.mvp.views.baseactivity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.example.verticalvideo.R;
 import com.example.verticalvideo.base.common.views.basesactivitiey.MvpActivity;

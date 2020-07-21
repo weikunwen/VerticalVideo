@@ -1,6 +1,6 @@
 package com.example.verticalvideo.base.mvp.presenters;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.example.verticalvideo.base.common.presenters.MvpPresenter;
 import com.example.verticalvideo.base.mvp.models.IBaseMvpModel;

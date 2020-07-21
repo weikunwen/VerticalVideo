@@ -1,6 +1,6 @@
 package com.example.verticalvideo.api;
 
-public class BaseResponse<T> implements NetResultResponse<T> {
+public class BaseResponseI<T> implements INetResultResponse<T> {
     private int code;
     private String msg;
     private T data;

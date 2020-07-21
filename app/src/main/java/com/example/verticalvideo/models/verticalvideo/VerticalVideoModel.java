@@ -1,6 +1,6 @@
 package com.example.verticalvideo.models.verticalvideo;
 
-import com.example.verticalvideo.api.BaseResponse;
+import com.example.verticalvideo.api.BaseResponseI;
 import com.example.verticalvideo.beans.VideosInfoBean;
 import com.example.verticalvideo.utils.LogHelper;
 import com.example.verticalvideo.utils.RetrofitUtils;
@@ -15,12 +15,12 @@ public class VerticalVideoModel implements IVerticalVideoModel{
 
     @Override
     public void getVideosInfoList(VideosInfoListCallBack videosInfoListCallBack) {
-        Flowable<BaseResponse<VideosInfoBean[]>> flowable = RetrofitUtils.getInstance().getApiService().getVideoListInfo();
+        Flowable<BaseResponseI<VideosInfoBean[]>> flowable = RetrofitUtils.getInstance().getApiService().getVideoListInfo();
         flowable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSubscriber<BaseResponse<VideosInfoBean[]>>() {
+                .subscribeWith(new DisposableSubscriber<BaseResponseI<VideosInfoBean[]>>() {
                     @Override
-                    public void onNext(BaseResponse<VideosInfoBean[]> baseResponse) {
+                    public void onNext(BaseResponseI<VideosInfoBean[]> baseResponse) {
                         LogHelper.i(TAG, "getVideosInfoList onResponse");
                         if((baseResponse.getCode() == 0) && ("成功".equals(baseResponse.getMessage()))) {
                             videosInfoListCallBack.onSuccess(baseResponse.getData());
