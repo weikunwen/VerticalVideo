@@ -4,8 +4,7 @@ public class BaseResponseI<T> {
     private int code;
     private String msg;
     private T data;
-
-    @Override
+    
     public int getCode() {
         return code;
     }
@@ -14,7 +13,6 @@ public class BaseResponseI<T> {
         this.code = code;
     }
 
-    @Override
     public String getMessage() {
         return msg;
     }
@@ -23,7 +21,6 @@ public class BaseResponseI<T> {
         this.msg = msg;
     }
 
-    @Override
     public T getData() {
         return data;
     }
