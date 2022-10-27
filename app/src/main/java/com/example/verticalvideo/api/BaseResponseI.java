@@ -4,7 +4,7 @@ public class BaseResponseI<T> {
     private int code;
     private String msg;
     private T data;
-    
+
     public int getCode() {
         return code;
     }

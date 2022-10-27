@@ -66,6 +66,9 @@ public class VerticalVideoActivity extends MvpAppMvpActivity<VerticalVideoPresen
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        mVerticalVideoPresenter.ifPresent(presenter -> {
+            presenter.unbindView();
+        });
     }
 
     private void getVideosInfoList() {
