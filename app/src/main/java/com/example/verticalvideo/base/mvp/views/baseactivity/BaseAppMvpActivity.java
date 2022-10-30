@@ -5,10 +5,10 @@ import androidx.annotation.Nullable;
 
 import com.example.verticalvideo.R;
 import com.example.verticalvideo.base.common.views.basesactivitiey.MvpActivity;
-import com.example.verticalvideo.base.mvp.presenters.BaseMvpPresenter;
+import com.example.verticalvideo.base.mvp.presenters.IBaseMvpPresenter;
 import com.example.verticalvideo.base.mvp.views.IBaseMvpView;
 
-public abstract class BaseAppMvpActivity<P extends BaseMvpPresenter> extends MvpActivity<P> implements IBaseMvpView {
+public abstract class BaseAppMvpActivity<P extends IBaseMvpPresenter> extends MvpActivity<P> implements IBaseMvpView {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

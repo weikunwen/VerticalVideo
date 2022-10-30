@@ -5,7 +5,7 @@ package com.example.verticalvideo.api;
  * @date 2022/10/30
  * @Description:
  */
-public interface IBaseNetRespone<T> {
+public interface IBaseNetResponse<T> {
     /**
      * api response bean
      *

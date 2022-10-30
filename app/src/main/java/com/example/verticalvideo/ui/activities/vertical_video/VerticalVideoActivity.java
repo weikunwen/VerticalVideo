@@ -15,7 +15,7 @@ import com.example.verticalvideo.utils.LogHelper;
 
 import java.util.Optional;
 
-public class VerticalVideoActivity extends BaseAppMvpActivity<VerticalVideoPresenter> implements VerticalVideoContract.IVerticalVideoView {
+public class VerticalVideoActivity extends BaseAppMvpActivity<VerticalVideoContract.IVerticalVideoPresenter> implements VerticalVideoContract.IVerticalVideoView {
     private static final String TAG = "VerticalVideoActivity";
 
     private RecyclerView recyclerView;

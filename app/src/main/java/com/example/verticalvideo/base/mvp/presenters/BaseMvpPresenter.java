@@ -7,7 +7,7 @@ import com.example.verticalvideo.base.mvp.views.IBaseMvpView;
 
 import java.util.Optional;
 
-public abstract class BaseMvpPresenter<T extends IBaseMvpView> extends MvpPresenter<T> {
+public abstract class BaseMvpPresenter<T extends IBaseMvpView> extends MvpPresenter<T> implements IBaseMvpPresenter{
     protected Optional<T> mView = Optional.empty();
 
     public void bindView(@NonNull T view) {
