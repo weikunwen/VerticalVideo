@@ -1,17 +1,15 @@
 package com.example.verticalvideo.ui.activities.vertical_video;
 
-import com.example.verticalvideo.base.mvp.models.IBaseMvpModel;
-import com.example.verticalvideo.base.mvp.presenters.BaseMvpPresenter;
+import com.example.verticalvideo.base.mvp.presenters.IBaseMvpPresenter;
 import com.example.verticalvideo.base.mvp.views.IBaseMvpView;
+import com.example.verticalvideo.beans.VideosInfoBean;
 
 public class VerticalVideoContract {
-    public interface IBaseView extends IBaseMvpView {
+    public interface IVerticalVideoView extends IBaseMvpView {
+        void updateVideoInfo(VideosInfoBean[] videosInfoList);
     }
 
-    public interface IBaseModel extends IBaseMvpModel {
-    }
-
-    public abstract static class Presenter<T extends VerticalVideoContract.IBaseView,
-        V extends VerticalVideoContract.IBaseModel> extends BaseMvpPresenter<T, V> {
+    public interface IVerticalVideoPresenter extends IBaseMvpPresenter {
+        void getVideosInfoList();
     }
 }

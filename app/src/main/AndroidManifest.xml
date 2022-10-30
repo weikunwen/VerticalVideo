@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".base.mvp.views.baseactivity.MvpAppMvpActivity"
+        <activity android:name=".base.mvp.views.baseactivity.BaseAppMvpActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"/>
 

@@ -8,15 +8,14 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.verticalvideo.R;
-import com.example.verticalvideo.base.mvp.views.baseactivity.MvpAppMvpActivity;
+import com.example.verticalvideo.base.mvp.views.baseactivity.BaseAppMvpActivity;
 import com.example.verticalvideo.beans.VideosInfoBean;
-import com.example.verticalvideo.models.verticalvideo.VerticalVideoModel;
 import com.example.verticalvideo.ui.fragments.VideoFragment;
 import com.example.verticalvideo.utils.LogHelper;
 
 import java.util.Optional;
 
-public class VerticalVideoActivity extends MvpAppMvpActivity<VerticalVideoPresenter> implements IVerticaVideoView {
+public class VerticalVideoActivity extends BaseAppMvpActivity<VerticalVideoPresenter> implements VerticalVideoContract.IVerticalVideoView {
     private static final String TAG = "VerticalVideoActivity";
 
     private RecyclerView recyclerView;
@@ -46,21 +45,15 @@ public class VerticalVideoActivity extends MvpAppMvpActivity<VerticalVideoPresen
         LogHelper.i(TAG, "onCreate is invoked.");
         mVerticalVideoPresenter.ifPresent(presenter -> {
             presenter.bindView(this);
-            presenter.setModel(new VerticalVideoModel());
         });
         initData();
     }
 
     @Override
-    public void onSuccess(VideosInfoBean[] videosInfoList) {
+    public void updateVideoInfo(VideosInfoBean[] videosInfoList) {
         LogHelper.i(TAG, "onSuccess");
         mVideosInfoList = videosInfoList;
         initView();
-    }
-
-    @Override
-    public void onFailed() {
-
     }
 
     @Override

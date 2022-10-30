@@ -1,10 +1,11 @@
 package com.example.verticalvideo.api;
 
-public class BaseResponseI<T> {
+public class BaseNetNetResponse<T> implements IBaseNetRespone<T> {
     private int code;
-    private String msg;
+    private String message;
     private T data;
 
+    @Override
     public int getCode() {
         return code;
     }
@@ -13,14 +14,16 @@ public class BaseResponseI<T> {
         this.code = code;
     }
 
+    @Override
     public String getMessage() {
-        return msg;
+        return message;
     }
 
     public void setMessage(String msg) {
-        this.msg = msg;
+        this.message = msg;
     }
 
+    @Override
     public T getData() {
         return data;
     }
